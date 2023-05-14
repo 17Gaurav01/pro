@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import store from '../reducers/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { enroll } from '../actions';
 
@@ -14,6 +15,8 @@ const DashboardPage = () => {
     dispatch(enroll(name, age));
     setName('');
     setAge('');
+    console.log(name);
+    console.log(age);
   };
 
   return (
@@ -27,7 +30,7 @@ const DashboardPage = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Age"
           value={age}
           onChange={(e) => setAge(e.target.value)}
@@ -44,7 +47,7 @@ const DashboardPage = () => {
               <th>Age</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody> 
             {enrolledEntries.map((entry, index) => (
               <tr key={entry.id}>
                 <td>{index + 1}</td>
@@ -52,7 +55,7 @@ const DashboardPage = () => {
                 <td>{entry.age}</td>
               </tr>
             ))}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </div>

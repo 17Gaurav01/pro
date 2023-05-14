@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
 import { login } from '../actions';
 
@@ -10,7 +11,11 @@ const LoginPage = () => {
   const handleLogin = () => {
     // Perform login logic here
     // Dispatch an action to update Redux state if needed
+    console.log(username);
+    console.log(password);
+    
     dispatch(login(username, password));
+    
   };
 
   return (
