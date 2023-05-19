@@ -1,6 +1,6 @@
 // Action Types
-export const LOGIN = 'LOGIN';
-export const ENROLL = 'ENROLL';
+export const LOGIN = 'login';
+export const ENROLL = 'enroll';
 
 // Action Creators
 export const login = (username, password) => {

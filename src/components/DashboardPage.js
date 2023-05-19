@@ -4,17 +4,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { enroll } from '../actions';
 
 const DashboardPage = () => {
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const enrolledEntries = useSelector((state) => state.entries);
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const enrolledEntries = useSelector((state) => state.reducer.entries);
+  console.log(
+    "enrolledEntries",
+    useSelector((state) => state)
+  );
   const dispatch = useDispatch();
 
   const handleEnroll = () => {
-    // Perform enroll logic here
-    // Dispatch an action to update Redux state if needed
     dispatch(enroll(name, age));
-    setName('');
-    setAge('');
+    setName("");
+    setAge("");
     console.log(name);
     console.log(age);
   };
@@ -22,7 +24,6 @@ const DashboardPage = () => {
   return (
     <div>
       <div>
-        {/* Left side options */}
         <input
           type="text"
           placeholder="Name"
@@ -35,10 +36,10 @@ const DashboardPage = () => {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-        <button onClick={handleEnroll}>Enroll</button>
+        <button onClick={handleEnroll}>Enroll</button> // Add the onClick event
+        handler here
       </div>
       <div>
-        {/* Right side table */}
         <table>
           <thead>
             <tr>
@@ -47,19 +48,20 @@ const DashboardPage = () => {
               <th>Age</th>
             </tr>
           </thead>
-          {/* <tbody> 
-            {enrolledEntries.map((entry, index) => (
+          <tbody>
+            {enrolledEntries && enrolledEntries.map((entry, index) => (
               <tr key={entry.id}>
                 <td>{index + 1}</td>
                 <td>{entry.name}</td>
                 <td>{entry.age}</td>
               </tr>
             ))}
-          </tbody> */}
+          </tbody>
         </table>
       </div>
     </div>
   );
 };
+
 
 export default DashboardPage;

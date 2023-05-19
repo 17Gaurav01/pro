@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { login, enroll } from '../actions';
+import { LOGIN,ENROLL } from '../actions';
 
 
 const initialState = {
@@ -8,11 +8,9 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case login:
-      // Perform login logic if needed
-      // console.log(state);
+    case LOGIN:
       return state;
-    case enroll:
+    case ENROLL:
       const newEntry = {
         id: state.entries.length + 1,
         name: action.payload.name,
@@ -27,15 +25,12 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-// Create your Redux store
-// Create your Redux store
 const store = configureStore({
   reducer: {
     reducer: reducer
   }
 });
 
-// Export your store
 export default store;
 
 
